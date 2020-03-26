@@ -57,9 +57,9 @@ func (s *CmdExecutor) BrickCreate(host string,
 	devnode := paths.BrickDevNode(brick.VgId, brick.Name)
 	// Create mkfs.xfs command
 	if xfsSw == 0 || xfsSu == 0 {
-		mkfsXfs = fmt.Sprintf("mkfs.xfs -i %v -n size=8192 %v", xfsInodeOptions, devnode)
+		mkfsXfs = fmt.Sprintf("mkfs.xfs -f -i %v -n size=8192 %v", xfsInodeOptions, devnode)
 	} else {
-		mkfsXfs = fmt.Sprintf("mkfs.xfs -i %v -d su=%v,sw=%v -n size=8192 %v", xfsInodeOptions, xfsSu, xfsSw, devnode)
+		mkfsXfs = fmt.Sprintf("mkfs.xfs -f -i %v -d su=%v,sw=%v -n size=8192 %v", xfsInodeOptions, xfsSu, xfsSw, devnode)
 	}
 	commands := []string{
 
