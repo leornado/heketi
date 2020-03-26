@@ -63,7 +63,7 @@ func (s *CmdExecutor) BrickCreate(host string,
 			utils.BrickIdToName(brick.Name)),
 
 		// Format
-		fmt.Sprintf("mkfs.xfs -i size=512 -n size=8192 %v", devnode),
+		fmt.Sprintf("mkfs.xfs -f -i size=512 -n size=8192 %v", devnode),
 
 		// Fstab
 		fmt.Sprintf("awk \"BEGIN {print \\\"%v %v xfs rw,inode64,noatime,nouuid 1 2\\\" >> \\\"%v\\\"}\"",
